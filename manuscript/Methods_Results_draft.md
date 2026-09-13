@@ -245,7 +245,7 @@ pericentral adducts, nmol).**
 | measured | 17 | 3.425 × 10⁻² | 3.299 × 10⁻² | — |
 | measured | 60 | 3.477 × 10⁻² | 3.338 × 10⁻² | 3.333 × 10⁻² |
 
-[[FIG fig4_staggered.png | Staggered versus single ingestion at fixed total dose (16 g): pericentral GSH (left column) and adducts (right column) over time, under assumed (top row) and measured (bottom row) gradient representations. Staggering slightly raises the GSH minimum and slightly lowers the peak adduct burden; the metabolic footprint of the pattern is small.]]
+[[FIG staggered_patterns.png | Staggered versus single ingestion at fixed total dose (16 g): pericentral GSH (left column) and adducts (right column) over time, under assumed (top row) and measured (bottom row) gradient representations. Staggering slightly raises the GSH minimum and slightly lowers the peak adduct burden; the metabolic footprint of the pattern is small.]]
 
 ### 3.5 Robustness: boost magnitude, absorption, and saturable kinetics
 
