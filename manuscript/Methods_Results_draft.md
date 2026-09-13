@@ -163,6 +163,48 @@ integrated with a stiff Radau solver (`solve_ivp`, rtol 10⁻⁵, atol 10⁻⁸)
 start time), and the pericentral GSH minimum. One-at-a-time attribution and
 multi-parameter sweeps are reported alongside.
 
+### 2.7 Virtual (in silico) clinical trial
+
+To translate the mechanistic findings into population-level quantities, we
+conducted a virtual trial: the same model, evaluated over a simulated patient
+population rather than single deterministic scenarios.
+
+**Virtual population (N = 300 per representation).** Total ingested dose
+~ log-normal (median 14 g; 5th–95th percentiles ≈ 6–30 g; clipped 2–40 g).
+Presentation time (first ingestion → treatment availability) ~ log-normal
+(median 5 h, heavy right tail, clipped 0.5–48 h). Ingestion pattern: 40% of
+patients ingest in 2–8 staggered doses spread over 2–24 h; the remainder as a
+single ingestion. Inter-individual variability is applied as log-normal
+multipliers on *total* (not spatial) enzyme capacity and absorption — CYP450
+CV 35%, UGT 30%, SULT 25%, GST 25%, GSH synthesis 30%, absorption 30% —
+stated assumptions in the absence of population fold-distribution data. The
+spatial shape of each gradient representation is held fixed; variability
+shifts overall capacity.
+
+**Arms (the same virtual patients in every arm — a paired design).**
+(1) *No treatment* (placebo; possible only in silico); (2) *standard care*:
+the calibrated protocol-driven NAC input started at the patient's
+presentation time; (3) *late treatment*: the same input started 12 h after
+presentation (missed or delayed treatment). Each patient × arm × gradient
+representation is a separate integration (1,800 runs).
+
+**Endpoints and anchoring.** The mechanistic endpoint is peak pericentral
+adducts. A "severe injury" event is defined as C_pk exceeding a threshold θ
+that is **externally anchored**: θ is set per gradient representation so that
+the no-treatment arm reproduces the historical untreated severe
+hepatotoxicity rate of 42.3% (hepatotoxicity defined as AST ≥ 1000 IU/L) from
+the clinical cohort literature (3) — i.e., the 58th percentile of the
+simulated no-treatment C_pk distribution. Treatment benefit is then reported
+against that anchored threshold as absolute risk reduction (ARR) and
+number-needed-to-treat (NNT). A secondary mechanistic endpoint is pericentral
+GSH exhaustion (minimum < 10% of the patient's own pre-dose steady state).
+Because θ is anchored within each representation, the reported contrast
+isolates the treatment effect from the representations' different baseline
+adduct burdens; anchoring on a single common threshold instead is reported as
+a sensitivity in the repository. Subgroup analyses: presentation-time
+quantiles (0–4, 4–8, 8–16, > 16 h) and ingestion pattern (single versus
+staggered).
+
 ---
 
 ## Results
@@ -290,3 +332,49 @@ calibrated treatment).**
 | measured | 16 g | linear | 42% | 20% | 5% |
 | measured | 16 g | r = 3 | 98% | 90% | 62% |
 | measured | 16 g | r = 1 | 81% | 57% | 29% |
+
+### 3.6 Virtual trial: population-level benefit, the late-presentation penalty, and staggered recognition
+
+The virtual trial (300 patients per representation, paired across arms) turns
+the deterministic window into population quantities with the severity
+threshold externally anchored so that the untreated arm reproduces the
+historical untreated severe-hepatotoxicity rate of 42.3% (3).
+
+**Standard care halves the anchored risk.** NAC started at presentation
+reduces severe-injury incidence from 42.3% to 23.3% (assumed gradients; ARR
+19.0 percentage points, NNT ≈ 5) and to 21.0% (measured gradients; ARR 21.3
+pp, NNT ≈ 5) (Fig. 5). Benefit concentrates where the deterministic window
+predicts: by presentation-time bin, incidence falls from 45% to 17–19% for
+0–4 h presentations and from 38–39% to 17–20% for 4–8 h, shrinks to a 7–9
+pp reduction for 8–16 h, and vanishes entirely for presentations after 16 h.
+Treatment delayed 12 h beyond presentation is nearly worthless (ARR 2.3–4.0
+pp; NNT 25–43). The population trial thus reproduces both the early-window
+benefit and the late-threshold behaviour of the deterministic analysis, now
+with absolute numbers.
+
+**The pattern interaction: staggering helps only if recognition is not
+delayed.** Under standard care, staggered-ingestion patients fare far better
+than single-ingestion patients (6.6% versus 33–37% severe) — but only because
+the virtual trial draws presentation time independently of pattern, so
+treatment often begins while a staggered ingestion is still ongoing. When the
+trial is re-run with a 12-h recognition penalty applied to staggered
+patients' presentation times (reflecting the clinical reality that a toxic
+*cumulative* dose is recognised only after repeated ingestion), their
+incidence rises to 23.5–27.2% — most of the apparent pattern advantage
+disappears, and the residual benefit reflects treatment on board during
+continued absorption. Together with §3.4 this separates the two components of
+the staggered-overdose problem: the metabolic footprint of the pattern is
+neutral at fixed dose and fixed treatment time; the clinical danger is
+delayed recognition, and it is quantitatively large.
+
+**The gradient contrast is real but compressed at the population level.** The
+two zonation representations differ far more in continuous adduct burden than
+in the anchored binary endpoint: measured gradients give ARR 21.3 pp versus
+19.0 pp (NNT 4.7 versus 5.3). The anchoring re-normalises each
+representation's severity scale, and the binary endpoint compresses the
+large deterministic differences (e.g. 7% versus 1% protection at 8 h) into a
+modest between-world contrast — a caution against reading the dramatic
+single-patient window differences directly as population-level risk
+differences.
+
+[[FIG fig5_virtual_trial.png | Virtual-trial results: severe-injury incidence by presentation-time bin for the three arms (no NAC; NAC at presentation; NAC 12 h after presentation), under assumed (left) and measured (right) gradient representations. The severity threshold is anchored per representation so that the untreated arm reproduces the historical untreated rate of 42.3% (3). Benefit concentrates in 0–8 h presentations and vanishes after 16 h.]]

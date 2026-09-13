@@ -23,6 +23,10 @@
 - At fixed total dose, staggered ingestion is metabolically neutral: the
   clinical danger of staggered overdose reflects late presentation, not
   pattern-specific metabolism.
+- In a virtual trial (300 patients, anchored to the historical untreated
+  severity rate), NAC at presentation halves severe-injury risk (NNT ≈ 5);
+  the benefit vanishes for presentations after 16 h, and a 12-h recognition
+  delay erases most of staggered patients' apparent advantage.
 
 ## Abstract
 
@@ -46,9 +50,15 @@ synthesis, unzonated — the window widens substantially (protection at 8 h:
 maintains a larger pericentral detoxification reserve. At fixed total dose,
 staggered ingestion changes peak adduct burden by only −2 to −4%: the danger
 of staggered overdose reflects late presentation, not the pattern itself.
-Conclusions are robust to saturable kinetics and absorption rates. The
-zonation assumption a modeller makes propagates from injury prediction into
-treatment prediction — and the measured picture is the more optimistic one.
+Conclusions are robust to saturable kinetics and absorption rates. In a
+virtual trial of 300 simulated patients per gradient representation — with
+the severe-injury threshold anchored to the historical untreated rate of
+42.3% — treatment at presentation halves that risk (absolute risk reduction
+19–21 percentage points; number needed to treat ≈ 5), the benefit vanishes
+for presentations after 16 h, and a 12-h recognition delay erases most of
+staggered patients' apparent advantage. The zonation assumption a modeller
+makes propagates from injury prediction into treatment prediction — and the
+measured picture is the more optimistic one.
 
 ## Keywords
 
