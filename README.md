@@ -63,12 +63,51 @@ peak pericentral adducts):
   footprint. This is an honest, useful negative result and a paper-2 talking
   point, not a bug.
 
+## NAC PK calibration (code/nac_pk_calibration.py, 2026-09-13)
+
+The scenario parameter M was replaced by a protocol-driven input calibrated
+against the literature:
+
+- **PK**: standard 21-h IV protocol (150/50/100 mg/kg over 1/4/16 h); plasma
+  NAC with first-order elimination, t½ = 2 h (Prescott et al.). Modelled plasma
+  peak ≈ 127 mg/kg.
+- **PD link**: a "cysteine-equivalent" pool fed by plasma NAC (pool t½ = 6 h,
+  stated assumption — midpoint of the NAC t½ and hepatocyte GSH turnover);
+  synthesis boost = M_max · B_G · (pool / pool-peak).
+- **Calibration criterion** (anchored to Lauterburg/Corcoran/Mitchell 1983,
+  who showed NAC does *not* prevent initial GSH depletion but dramatically
+  accelerates recovery of detoxification capacity): at 16 g with NAC from 0 h,
+  pericentral GSH must recover to ≥ 50% of its pre-dose steady state by 12 h.
+
+**Result: the calibrated peak boost is M_max = 4.0 × basal synthesis** — exactly
+the scenario value used in all the earlier sweeps, which therefore already
+bracket the calibrated case (M = 2 fails the criterion at 9.6% recovery;
+M = 4 passes at 51.7%).
+
+**PK-driven window** (protection vs NAC start time; cf. the constant-M table
+above):
+
+| Gradients | Dose | 0 h | 2 h | 4 h | 6 h | 8 h | 12 h |
+|---|---|---|---|---|---|---|---|
+| assumed | 4 g | 58% | 31% | 14% | 5% | 1% | 0% |
+| assumed | 16 g | 31% | 20% | 11% | 5% | 1% | 0% |
+| measured | 4 g | **83%** | **73%** | **55%** | **27%** | **7%** | 1% |
+| measured | 16 g | **42%** | **30%** | **20%** | **11%** | **5%** | 0% |
+
+The PK-driven treatment is *conservative* (the plasma-linked boost wanes after
+the loading dose, unlike the constant-M ceiling), but every qualitative
+conclusion survives: the window closes between 4 and 12 h; measured gradients
+give substantially higher protection at every start time (83% vs 58% at 0 h;
+7% vs 1% at 8 h for 4 g); and the late-window gap (measured vs assumed) is
+larger in relative terms than under the constant-M scenario.
+
 ## Caveats (carry into any manuscript)
 
-- The NAC boost magnitude M is a scenario parameter (multiples of basal
-  synthesis), not calibrated to mg/kg protocols; before submission, calibrate
-  against published NAC pharmacokinetics (cysteine/GSH repletion data).
-- ka = 60 d⁻¹ is an approximate human absorption rate; sensitivity-check it.
+- The NAC boost magnitude is now PK-anchored (calibrated M_max = 4; see the
+  calibration section); the remaining free assumption is the cysteine-pool
+  t½ = 6 h and the recovery-criterion threshold (50% by 12 h).
+- ka = 60 d⁻¹ is an approximate human absorption rate; sensitivity-checked
+  across 17–60 d⁻¹ (robust).
 - Metric is peak pericentral adducts — a proxy, not necrosis (same limitation
   as paper 1).
 - No inflammatory response, no transport, single hepatocyte type.
