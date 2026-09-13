@@ -199,6 +199,15 @@ recovery, not by any parameter of the antidote's own pharmacokinetics.
 
 [[FIG fig2_nac_window.png | Predicted NAC efficacy window: reduction in peak pericentral adducts versus no treatment, as a function of treatment start time after ingestion, at the simulated 4 g and 16 g single doses, under assumed (orange dashed) and measured (blue solid) gradient representations. Treatment is the calibrated, protocol-driven 21-h IV NAC input. Shading marks the late window beyond the clinical 8-hour rule.]]
 
+The calibrated boost itself is shown in Fig. 3: without NAC, the pericentral
+GSH pool collapses and recovers only slowly; at `M_max = 4×` basal synthesis —
+the smallest peak boost meeting the recovery criterion — the pool recovers to
+51.7% of baseline by 12 h, while `M_max = 2×` recovers only 9.6% and `M_max =
+8×` overshoots. The criterion therefore discriminates sharply between
+treatment magnitudes rather than being satisfied trivially.
+
+[[FIG fig3_calibration.png | Calibration of the NAC term. Pericentral GSH recovery after the simulated 16 g single dose with treatment started at 0 h, for the no-NAC reference (grey dashed) and peak boosts M_max = 1, 2, 4 (thick) and 8 (blue ramp). Dotted line: the recovery criterion (≥ 50% of the pre-dose steady state by 12 h); vertical line at 12 h. The calibrated peak boost (M_max = 4) is the smallest magnitude that meets the criterion.]]
+
 ### 3.3 Measured gradients widen the antidote window
 
 At every start time and both doses, the measured representation predicts

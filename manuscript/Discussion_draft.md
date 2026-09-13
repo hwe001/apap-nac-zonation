@@ -104,10 +104,10 @@ actually decides clinical outcomes.
 
 ## Code and data availability
 
-The model code, the gradient-derivation inputs, the figures, and an
-interactive browser viewer are publicly available at
-[github.com/hwe001/apap-zonation](https://github.com/hwe001/apap-zonation)
-(and will be mirrored to a dedicated repository for this manuscript). The
-submission version will be archived with a DOI via Zenodo and cited here on
-acceptance. The viewer displays precomputed simulations and is intended for
-inspecting results, not as validation evidence.
+The model code, the gradient-derivation inputs, the figures, and all
+calibration and sensitivity results are publicly available at
+[github.com/hwe001/apap-nac-zonation](https://github.com/hwe001/apap-nac-zonation).
+The submission version will be archived with a DOI via Zenodo and cited here
+on acceptance. Related prior work by the authors (the zonation-model stability
+analysis) is archived separately at
+[github.com/hwe001/apap-zonation](https://github.com/hwe001/apap-zonation).
