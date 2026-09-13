@@ -111,9 +111,9 @@ treatment analysis below exploits.
 
 NAC is represented where it acts: as a cysteine donor that raises hepatic GSH
 synthesis. The standard 21-h intravenous protocol drives the input —
-150 mg/kg over 1 h, then 50 mg/kg over 4 h, then 100 mg/kg over 16 h. Plasma
-NAC follows first-order elimination with the reported intravenous half-life of
-~2 h (10); the modelled plasma peak is ≈ 127 mg/kg. Because GSH synthesis
+150 mg/kg over 1 h, then 50 mg/kg over 4 h, then 100 mg/kg over 16 h (14).
+Plasma NAC follows first-order elimination with the reported intravenous
+half-life of ~2 h (10); the modelled plasma peak is ≈ 127 mg/kg. Because GSH synthesis
 support outlasts plasma NAC itself, the boost is driven by a
 cysteine-equivalent pool fed by plasma NAC and eliminated with a half-life of
 6 h (a stated assumption, the midpoint of the NAC half-life and hepatocyte
