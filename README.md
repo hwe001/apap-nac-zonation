@@ -1,9 +1,11 @@
 # Paper 2 — NAC timing and staggered overdose under measured hepatic zonation
 
-Working folder for the follow-up to the submitted JTB paper
-("How much does assumed enzyme zonation matter for predicted acetaminophen
-hepatotoxicity? A stability analysis against measured human profiles" —
-companion repo: `github.com/hwe001/apap-zonation`, submission version v1.1.1).
+**Independent work** (self-contained model, methods, and literature base; to be
+submitted to a different journal than the JTB paper). The core 16-hepatocyte
+model code is bundled here in full; the JTB submission ("How much does assumed
+enzyme zonation matter for predicted acetaminophen hepatotoxicity?", repo
+`github.com/hwe001/apap-zonation`, v1.1.1) is related prior work by the same
+group but is **not** a dependency of this manuscript.
 
 ## Motivation
 
