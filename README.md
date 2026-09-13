@@ -73,6 +73,37 @@ peak pericentral adducts):
   as paper 1).
 - No inflammatory response, no transport, single hepatocyte type.
 
+## Sensitivity and robustness (code/sensitivity_paper2.py, 2026-09-13)
+
+**1. NAC boost magnitude M ∈ {1, 2, 4}** (`figures/sweep_M.png`): the
+qualitative picture is M-robust — under *assumed* gradients the window is
+closed by 4–6 h at every M (GSH is already gone before any boost can act);
+under *measured* gradients the late window scales with M (4 h protection
+11% → 14% → 16% at 4 g). The assumed-vs-measured ordering is preserved for
+every M, so the uncalibrated boost size affects magnitude, not conclusion.
+
+**2. Absorption rate ka ∈ {17, 34, 60} d⁻¹** (t½ ≈ 1 h, 30 min, 17 min): the
+staggered-vs-single difference in peak adducts stays in a narrow band
+(−1.9% to −4.0%) at every ka and both schemes — "staggered is metabolically
+neutral at fixed total dose" is absorption-rate-robust.
+
+**3. Saturation robustness** (kG, k450 → k·P/(1 + P/Km), Km = P0(16 g)/r):
+saturation **strengthens** the clinical message rather than breaking it —
+
+| 8-h protection (4 g / 16 g) | linear | r = 3 | r = 1 |
+|---|---|---|---|
+| assumed gradients | 2% / 3% | 10% / 40% | 4% / 14% |
+| measured gradients | 16% / 9% | 37% / 62% | 26% / 29% |
+
+- NAC becomes *more* effective under saturable kinetics at overdose (capped
+  NAPQI formation lets GSH repletion keep up): 16 g early protection rises
+  from 45–56% (linear) to 61–98% (r = 1–3).
+- The **assumed-vs-measured ordering persists at every r** — the gradient
+  assumption matters for treatment predictions under linear *and* saturable
+  kinetics, and the gap at 16 g actually widens with saturation.
+- Base adduct burden falls with saturation (3.49e-2 → 2.42e-2 at 16 g
+  measured), consistent with capped oxidation.
+
 ## Roadmap (agreed 2026-09-13)
 
 1. **This paper**: NAC window + staggered dosing (fast, distinctive — Ghosh
