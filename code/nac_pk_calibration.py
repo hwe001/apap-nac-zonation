@@ -117,8 +117,14 @@ def calibrate():
           f"(50% of pre-dose steady state)\n")
 
     cal = None
-    for M_max in (1.0, 2.0, 4.0, 8.0, 16.0, 32.0):
+    traj_t, traj_G, traj_M = None, {}, []
+    for M_max in (0.0, 1.0, 2.0, 4.0, 8.0):     # 0 = no-NAC reference
         t, Y = run_pk("measured", 16.0, M_max, cys_ref, t_end=1.0)
+        traj_t = t * 24.0                        # hours
+        traj_G[M_max] = Y[:, -1, 3]
+        traj_M.append(M_max)
+        if M_max == 0.0:
+            continue                             # reference: no criterion check
         g12 = np.interp(0.5, t, Y[:, -1, 3])   # pericentral G at t = 12 h
         ok = g12 >= target
         print(f"  M_max = {M_max:5.1f}: pericentral G(12 h) = {g12:.2e}  "
@@ -126,6 +132,8 @@ def calibrate():
               f"{'PASS' if ok else 'fail'}")
         if ok and cal is None:
             cal = M_max
+    np.savez(RES / "nac_calibration.npz", t_h=traj_t, M=traj_M,
+             baseline=baseline, **{f"G_M{int(M)}": traj_G[M] for M in traj_M})
     return cal, cys_ref
 
 
@@ -146,6 +154,8 @@ def window_with_pk(cal, cys_ref):
             out[scheme][dose] = (base, prot)
             print(f"PK-NAC window {scheme:9s} {dose:3.0f} g: " +
                   "  ".join(f"{ts}h:{p:.0f}%" for ts, p in zip(DOSE_TIMES_H, prot)))
+    np.savez(RES / "nac_window_pk.npz", starts=DOSE_TIMES_H,
+             **{f"prot_{s}_{int(d)}g": out[s][d][1] for s in out for d in (4.0, 16.0)})
     return out
 
 
